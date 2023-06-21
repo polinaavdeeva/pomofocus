@@ -1,0 +1,504 @@
+@import url(./vendor/normalize.css);
+@import url(./blocks/page/page.css);
+@import url(./blocks/menu/menu.css);
+@import url(./blocks/menu/__list/menu__list.css);
+@import url(./blocks/logo/logo.css);
+:root {
+    --red: #e05454;
+    --lightred: #e06464;
+    --darkred: #c84c4c;
+    --shortblue: #4c9195;
+    --shortlightblue: #609ca4;
+    --shortdarkblue: #458488;
+    --longblue: #487ca4;
+    --longlightblue: #608cac;
+    --longdarkblue: #407494;
+}
+
+img {
+    width: 16px;
+    height: 16px;
+}
+
+section {
+    width: 80%;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.line {
+    width: 100%;
+    margin: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.timer__options {
+    margin-top: 1rem;
+}
+
+.timer__options ul li {
+    padding: 0.125rem 0.75rem;
+    border-radius: 4px;
+}
+
+.timer-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightred);
+    margin-top: 2rem;
+}
+
+#timer {
+    font-size: 120px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#timerButton {
+    width: 200px;
+    height: 55px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: var(--red);
+    margin: 1.25rem 0;
+    padding: 0 0.75rem;
+    box-shadow: rgb(235 235 235) 0px 6px 0px;
+    cursor: pointer;
+}
+
+.skipTimerButton {
+    position: absolute;
+    right: 80px;
+    bottom: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+}
+
+.skipTimerButton>img {
+    width: 22px;
+    height: 22px;
+    transition: all 0.2s ease-in;
+}
+
+#tasksContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#tasksContainer>div {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#taskMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+}
+
+#menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--lightred);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.task {
+    width: 100%;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    color: black;
+    border-radius: 0.35rem;
+    font-weight: bold;
+}
+
+.taskTextContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.taskTextContainer span {
+    width: 90%;
+    text-align: start;
+    overflow: hidden;
+}
+
+.taskTextContainer div:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.taskTextContainer div span {
+    opacity: 0.4;
+}
+
+.taskTextContainer div span:nth-child(3) {
+    font-size: 14px;
+}
+
+.markFinishedTaskButton {
+    width: 30px;
+    height: 25px;
+    display: inline-block;
+    border: 2px solid rgb(223, 223, 223);
+    border-radius: 50%;
+    background-color: rgb(223, 223, 223);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.markFinishedTaskButton::after {
+    display: block;
+    width: 7px;
+    height: 12px;
+    content: '';
+    margin-left: 6px;
+    margin-top: 0px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-width: 0px 3px 3px 0px;
+    transform: rotate(45deg);
+}
+
+.markFinishedTaskButton.finished {
+    border: 2px solid rgb(217, 85, 80);
+    background-color: rgb(217, 85, 80);
+}
+
+.task.finished .taskDescription {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
+#taskNote {
+    border-radius: 8px;
+    background-color: rgb(252, 248, 222);
+    color: rgb(96, 85, 21);
+    padding: 0.575rem 0.75rem;
+    margin-top: 0.7rem;
+    font-size: 15px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 1px 0px;
+    text-align: left;
+    word-break: break-all;
+}
+
+#addTaskButton {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--darkred);
+    color: white;
+    border: 2px dashed rgba(235, 235, 235, 0.4);
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.modal {
+    background-color: white;
+    color: #555555;
+    border-radius: 8px;
+}
+
+.modal a {
+    color: #a3a3a3;
+}
+
+.modal input {
+    border: none;
+    border-radius: 4px;
+    padding: 0.66rem 0;
+}
+
+.modal input:focus {
+    outline: none;
+}
+
+#taskMenuModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    z-index: 2;
+}
+
+.taskMenuModalOption {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.taskMenuModalOption:hover {
+    background-color: #f1eeee;
+}
+
+#taskMenuModal div:nth-child(1) {
+    border-radius: 8px 8px 0 0;
+}
+
+#taskMenuModal div:nth-child(4) {
+    border-radius: 0 0 8px 8px;
+}
+
+#taskModal {
+    padding: 0;
+}
+
+#taskModalMain {
+    border-radius: 8px 8px 0 0;
+    margin: 0 0.5rem;
+    padding: 1rem;
+}
+
+#taskFormContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+#workingOnInput {
+    font-style: italic;
+    font-size: 22px;
+    opacity: 0.5;
+}
+
+#taskFormContainer p {
+    display: flex;
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+#numberInputsContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+#numberInputsContainer input {
+    width: 20%;
+    background-color: #efefef;
+    padding: 0.66rem;
+}
+
+#numberInputsContainer span {
+    opacity: 0.5;
+}
+
+#numberInputsContainer a {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    opacity: 0.8;
+    box-shadow: #d3d3d3 0 2px 0;
+}
+
+#numberInputsContainer a img {
+    width: 10px;
+    height: 10px;
+}
+
+#noteContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.8rem;
+}
+
+.note {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.note textarea {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem;
+    background-color: #efefef;
+}
+
+.note textarea:focus {
+    outline: none;
+}
+
+#noteContainer a {
+    text-align: left;
+}
+
+#addNoteButton {
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#taskModalFooter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 !important;
+    padding: 0.9rem 1.25rem;
+    border-radius: 0 0 8px 8px;
+    background-color: #efefef;
+}
+
+#taskModalFooter a,
+#taskModalFooter button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 0.5rem 0.75rem;
+    min-width: 70px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#taskModalFooter a {
+    color: #929292;
+    font-weight: bold;
+}
+
+#taskModalFooter button {
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(171, 171, 171);
+    color: white;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px;
+}
+
+.timer__options ul li.Pomodoro:first-child {
+    background-color: var(--darkred);
+    font-weight: bold;
+}
+
+.line.Pomodoro {
+    border-bottom: 2px solid var(--darkred);
+}
+
+body.Pomodoro,
+#menuButton.Pomodoro {
+    background-color: var(--red);
+}
+
+#rightUl li a.Pomodoro,
+.timer__options ul li.Pomodoro,
+.timer-container.Pomodoro {
+    background-color: var(--lightred);
+}
+
+#timerButton.Pomodoro {
+    color: var(--red);
+}
+
+#addTaskButton.Pomodoro {
+    background-color: var(--darkred);
+}
+
+.line.Pomodoro {
+    border-color: var(--darkred);
+}
+
+.timer__options ul li.shortBreak:nth-child(2) {
+    background-color: var(--shortdarkblue);
+    font-weight: bold;
+}
+
+body.shortBreak,
+#menuButton.shortBreak {
+    background-color: var(--shortblue);
+}
+
+#rightUl li a.shortBreak,
+.timer-container.shortBreak,
+.timer__options ul li.shortBreak {
+    background-color: var(--shortlightblue);
+}
+
+#timerButton.shortBreak {
+    color: var(--shortblue);
+}
+
+#addTaskButton.shortBreak {
+    background-color: var(--shortdarkblue);
+}
+
+.line.shortBreak {
+    border-color: var(--shortdarkblue);
+}
+
+.timer__options ul li.longBreak:last-child {
+    background-color: var(--longdarkblue);
+    font-weight: bold;
+}
+
+body.longBreak,
+#menuButton.longBreak {
+    background-color: var(--longblue);
+}
+
+#rightUl li a.longBreak,
+.timer__options ul li.longBreak,
+.timer-container.longBreak {
+    background-color: var(--longlightblue);
+}
+
+#timerButton.longBreak {
+    color: var(--longblue);
+}
+
+#addTaskButton.longBreak {
+    background-color: var(--longdarkblue);
+}
+
+.line.longBreak {
+    border-color: var(--longdarkblue);
+}

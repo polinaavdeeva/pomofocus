@@ -1,0 +1,7 @@
+.page {
+    width: min(33%, 620px);
+    margin: auto;
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--red);
+    color: white;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no, user-scalable=0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>pomofocus.io</title>
+</head>
+
+<body class="page">
+    <main>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <h1 class="logo">
+                        <a class="menu__link"><img src="./images/icon-white.png" alt="Check image Pomofocus" /> Pomofocus</a>
+                    </h1>
+                </li>
+            </ul>
+            <ul class="menu__list" id="rightUl">
+                <li class="menu__item">
+                    <a class="menu__link" href="#"><img src="./images/graph-white.png" alt="Graph image" /> Report</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#"><img src="./images/config-white.png" alt="Config gear" /> Setting</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#"><img src="./images/user-white.png" alt="User image" /> Login</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="line"></div>
+        <section class="timer timer-container">
+            <div class="timer__options">
+                <ul class="menu__list">
+                    <li class="Pomodoro">
+                        <a href="#" id="pomodoroTab">Pomodoro</a>
+                    </li>
+                    <li>
+                        <a href="#" id="shortBreakTab">Short Break</a>
+                    </li>
+                    <li>
+                        <a href="#" id="longBreakTab">Long Break</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="timer">25:00</div>
+            <button id="timerButton">START</button>
+            <button class="skipTimerButton">
+                    <img src="./images/next-white3.png" alt="skip Timer Button"/></button>
+        </section>
+        <section id="tasksContainer">
+            <div>
+                <p id="counter">#1</p>
+                <p id="timeToSomething">Time to focus!</p>
+            </div>
+            <div id="taskMenu">
+                <span>Tasks</span>
+                <button id="menuButton">
+                        <img src="./images/three_dots.png" alt="Three dots menu"/>
+                    </button>
+                <div class="modal hidden" id="taskMenuModal">
+                    <div class="taskMenuModalOption" id="clearFinishedTasks">
+                        <img src="./images/delete-black.png" alt="Trash can" /> Clear finished tasks
+                    </div>
+                    <div class="taskMenuModalOption" id="clearAllTasks">
+                        <img src="./images/delete-black.png" alt="Trash can" /> Clear all tasks
+                    </div>
+                    <div class="taskMenuModalOption" id="resetCounter">
+                        <img src="./images/clock.svg" alt="Reset counter image" /> Reset counter
+                    </div>
+                    <div class="taskMenuModalOption" id="resetTimer">
+                        <img src="./images/clock.svg" alt="Reset timer image" /> Reset timer
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <button id="addTaskButton">
+                <img src="images/plus-circle-white.png" alt="Cross add task"/>
+                <p>Add task</p>
+            </button>
+            <div class="modal hidden" id="taskModal">
+                <div id="taskModalMain">
+                    <form id="taskForm" action="" onsubmit="task.submit(event)">
+                        <div id="taskFormContainer">
+                            <label for="workingOnInput" class="hidden">What are you working on?</label>
+                            <input id="workingOnInput" name="workingOnInput" type="text" placeholder="What are you working on?" autocomplete="off" required oninvalid="this.setCustomValidity('This field is required')" oninput="this.setCustomValidity('')" />
+                            <p>Act / Quantity of Pomodoros</p>
+                            <div id="numberInputsContainer">
+                                <label for="actInput" class="hidden">Act</label>
+                                <input id="actInput" name="actInput" type="number" value="0" min="0" />
+                                <span>/</span>
+                                <label for="quantityPomodoros" class="hidden">Quantity of Pomodoros</label>
+                                <input id="quantityPomodoros" name="quantityPomodoros" type="number" value="1" min="1" />
+                                <a id="increaseQuantity"><img src="./images/pointup.png" alt="increase quantity" /></a>
+                                <a id="decreaseQuantity"><img src="./images/pointdown.png" alt="decrease quantity" /></a>
+                            </div>
+                            <div id="noteContainer">
+                                <div class="note">
+                                    <label for="noteInput" class="hidden">Type your note here</label>
+                                    <textarea name="noteInput" class="" id="noteInput" placeholder="Some notes..."></textarea>
+                                </div>
+                                <a href="#" id="addNoteButton">+ Add Note</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="taskModalFooter">
+                    <a href="#" id="cancelButton">Cancel</a>
+                    <button href="#" form="taskForm">Save</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>
