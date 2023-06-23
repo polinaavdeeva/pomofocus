@@ -1,8 +1,3 @@
-@import url(./vendor/normalize.css);
-@import url(./blocks/page/page.css);
-@import url(./blocks/menu/menu.css);
-@import url(./blocks/menu/__list/menu__list.css);
-@import url(./blocks/logo/logo.css);
 :root {
     --red: #e05454;
     --lightred: #e06464;
@@ -260,7 +255,7 @@ a {
     z-index: 2;
 }
 
-.taskMenuModalOption {
+.modal__menu-option {
     width: 100%;
     display: flex;
     align-items: center;
@@ -271,7 +266,7 @@ a {
     cursor: pointer;
 }
 
-.taskMenuModalOption:hover {
+.modal__menu-option:hover {
     background-color: #f1eeee;
 }
 
@@ -415,35 +410,35 @@ a {
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px;
 }
 
-.timer__options ul li.Pomodoro:first-child {
+.timer__options ul li.pomodoro:first-child {
     background-color: var(--darkred);
     font-weight: bold;
 }
 
-.line.Pomodoro {
+.line.pomodoro {
     border-bottom: 2px solid var(--darkred);
 }
 
-body.Pomodoro,
-#menuButton.Pomodoro {
+body.pomodoro,
+#menuButton.pomodoro {
     background-color: var(--red);
 }
 
-#rightUl li a.Pomodoro,
-.timer__options ul li.Pomodoro,
-.timer-container.Pomodoro {
+#rightUl li a.pomodoro,
+.timer__options ul li.pomodoro,
+.timer-container.pomodoro {
     background-color: var(--lightred);
 }
 
-#timerButton.Pomodoro {
+#timerButton.pomodoro {
     color: var(--red);
 }
 
-#addTaskButton.Pomodoro {
+#addTaskButton.pomodoro {
     background-color: var(--darkred);
 }
 
-.line.Pomodoro {
+.line.pomodoro {
     border-color: var(--darkred);
 }
 

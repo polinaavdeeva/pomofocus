@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>pomofocus.io</title>
+    <link rel="stylesheet" href="./index.css" />
+    <title>pomofocus redcollar</title>
 </head>
 
 <body class="page">
@@ -38,43 +38,43 @@
         <section class="timer timer-container">
             <div class="timer__options">
                 <ul class="menu__list">
-                    <li class="Pomodoro">
-                        <a href="#" id="pomodoroTab">Pomodoro</a>
+                    <li class="pomodoro">
+                        <a class="pomodoro__link" href="#" id="pomodoroTab">Pomodoro</a>
                     </li>
                     <li>
-                        <a href="#" id="shortBreakTab">Short Break</a>
+                        <a class="pomodoro__link" href="#" id="shortBreakTab">Short Break</a>
                     </li>
                     <li>
-                        <a href="#" id="longBreakTab">Long Break</a>
+                        <a class="pomodoro__link" href="#" id="longBreakTab">Long Break</a>
                     </li>
                 </ul>
             </div>
-            <div id="timer">25:00</div>
-            <button id="timerButton">START</button>
-            <button class="skipTimerButton">
+            <div class="timer" id="timer">25:00</div>
+            <button class="timer__button" id="timerButton">START</button>
+            <button class="timer__skipButton skipTimerButton">
                     <img src="./images/next-white3.png" alt="skip Timer Button"/></button>
         </section>
-        <section id="tasksContainer">
+        <section class="tasks-container" id="tasksContainer">
             <div>
-                <p id="counter">#1</p>
-                <p id="timeToSomething">Time to focus!</p>
+                <p class="tasks-container__counter" id="counter">#1</p>
+                <p class="tasks-container__title" id="timeToSomething">Time to focus!</p>
             </div>
-            <div id="taskMenu">
-                <span>Tasks</span>
-                <button id="menuButton">
-                        <img src="./images/three_dots.png" alt="Three dots menu"/>
-                    </button>
+            <div class="tasks-container__menu" id="taskMenu">
+                <span class="tasks-container__menu-title">Tasks</span>
+                <button class="tasks-container__menu-button" id="menuButton">
+                        <img class="tasks-container__menu-image" src="./images/three_dots.png" alt="Three dots menu"/>
+                </button>
                 <div class="modal hidden" id="taskMenuModal">
-                    <div class="taskMenuModalOption" id="clearFinishedTasks">
-                        <img src="./images/delete-black.png" alt="Trash can" /> Clear finished tasks
+                    <div class="modal__menu-option taskMenuModalOption" id="clearFinishedTasks">
+                        <img class="modal__menu-img" src="./images/delete-black.png" alt="Trash can" /> Clear finished tasks
                     </div>
-                    <div class="taskMenuModalOption" id="clearAllTasks">
+                    <div class="modal__menu-option taskMenuModalOption" id="clearAllTasks">
                         <img src="./images/delete-black.png" alt="Trash can" /> Clear all tasks
                     </div>
-                    <div class="taskMenuModalOption" id="resetCounter">
+                    <div class="modal__menu-option taskMenuModalOption" id="resetCounter">
                         <img src="./images/clock.svg" alt="Reset counter image" /> Reset counter
                     </div>
-                    <div class="taskMenuModalOption" id="resetTimer">
+                    <div class="modal__menu-option taskMenuModalOption" id="resetTimer">
                         <img src="./images/clock.svg" alt="Reset timer image" /> Reset timer
                     </div>
                 </div>
@@ -85,35 +85,35 @@
                 <p>Add task</p>
             </button>
             <div class="modal hidden" id="taskModal">
-                <div id="taskModalMain">
-                    <form id="taskForm" action="" onsubmit="task.submit(event)">
-                        <div id="taskFormContainer">
-                            <label for="workingOnInput" class="hidden">What are you working on?</label>
-                            <input id="workingOnInput" name="workingOnInput" type="text" placeholder="What are you working on?" autocomplete="off" required oninvalid="this.setCustomValidity('This field is required')" oninput="this.setCustomValidity('')" />
+                <div class="modal__main" id="taskModalMain">
+                    <form class="modal__form" id="taskForm" action="" onsubmit="task.submit(event)">
+                        <div class="modal__task-container" id="taskFormContainer">
+                            <label class="hidden" for="workingOnInput">What are you working on?</label>
+                            <input class="modal__input" id="workingOnInput" name="workingOnInput" type="text" placeholder="What are you working on?" autocomplete="off" required oninvalid="this.setCustomValidity('This field is required')" oninput="this.setCustomValidity('')" />
                             <p>Act / Quantity of Pomodoros</p>
-                            <div id="numberInputsContainer">
+                            <div class="modal__nums-container" id="numberInputsContainer">
                                 <label for="actInput" class="hidden">Act</label>
-                                <input id="actInput" name="actInput" type="number" value="0" min="0" />
+                                <input class="modal__input" id="actInput" name="actInput" type="number" value="0" min="0" />
                                 <span>/</span>
                                 <label for="quantityPomodoros" class="hidden">Quantity of Pomodoros</label>
                                 <input id="quantityPomodoros" name="quantityPomodoros" type="number" value="1" min="1" />
                                 <a id="increaseQuantity"><img src="./images/pointup.png" alt="increase quantity" /></a>
                                 <a id="decreaseQuantity"><img src="./images/pointdown.png" alt="decrease quantity" /></a>
                             </div>
-                            <div id="noteContainer">
+                            <div class="modal__note-container" id="noteContainer">
                                 <div class="note">
-                                    <label for="noteInput" class="hidden">Type your note here</label>
-                                    <textarea name="noteInput" class="" id="noteInput" placeholder="Some notes..."></textarea>
+                                    <label class="note__lable hidden" for="noteInput">Type your note here</label>
+                                    <textarea class="note__text" name="noteInput" id="noteInput" placeholder="Some notes..."></textarea>
                                 </div>
-                                <a href="#" id="addNoteButton">+ Add Note</a>
+                                <a class="note__add-text" href="#" id="addNoteButton">+ Add Note</a>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div id="taskModalFooter">
+                <footer class="footer" id="taskModalFooter">
                     <a href="#" id="cancelButton">Cancel</a>
-                    <button href="#" form="taskForm">Save</button>
-                </div>
+                    <button class="footer__button" href="#" form="taskForm">Save</button>
+                </footer>
             </div>
         </section>
     </main>

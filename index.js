@@ -240,7 +240,7 @@ const style = {
     setPomodoroStyle() {
         this.changingElements.forEach(element => {
             element.classList.remove(`${App.currentTab}`)
-            element.classList.add('Pomodoro')
+            element.classList.add('pomodoro')
         })
 
         timeToSomething.textContent = 'Time to focus!'
@@ -379,7 +379,7 @@ const App = {
         this.time = 1000 * 60 * 25
         this.counter = 1
 
-        this.currentTab = 'Pomodoro'
+        this.currentTab = 'pomodoro'
         style.setPomodoroStyle()
 
         this.addEventListeners()
@@ -391,7 +391,7 @@ const App = {
     Pomodoro() {
         style.setPomodoroStyle()
 
-        this.currentTab = 'Pomodoro'
+        this.currentTab = 'pomodoro'
         this.time = 1000 * 60 * 25
         this.updateTimer('25:00')
 
@@ -425,7 +425,7 @@ const App = {
 
     checkTab() {
 
-        this.pomodoroTabCheck = this.currentTab === 'Pomodoro' ? true : false
+        this.pomodoroTabCheck = this.currentTab === 'pomodoro' ? true : false
 
         this.shortBreakTabCheck =
             this.currentTab === 'shortBreak' ? true : false
